@@ -70,19 +70,6 @@ const getAllCats = async () => {
   return final;
 };
 
-const getAllBooks = async () => {
-  let final = [];
-  await axios
-    .get(`${domain}/api/books`, {
-      params: { populate: "*" },
-      pagination: { pageSize: 100 },
-    })
-    .then((res) => {
-      final = res.data.data;
-    });
-  return final;
-};
-
 getAllCats().then((res) => {
   document.querySelector("#catsMain").innerHTML = "";
   res.forEach((el) => {
